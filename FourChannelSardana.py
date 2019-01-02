@@ -21,7 +21,7 @@ class FourChannel(MotorController):
         self.velocity = {12}
         self.restarted = {}
         self.delay_timer = {}
-        mydevice.command_inout("Init")
+        self.mydevice.command_inout("Init")
 
     def AddDevice(self, axis):
         print "AddDevice"
@@ -39,22 +39,22 @@ class FourChannel(MotorController):
 
     def ReadOne(self,axis):
         print "ReadOne"
-        return mydevice.Position
+        return self.mydevice.Position
 
 
     def StartOne(self, axis, position):
         print "StartOne"
-        mydevice.Position = position
+        self.mydevice.Position = position
         return
 
     def StopOne(self, axis, position):
         print "StopOne"
-        mydevice.command_inout("StopMove")
+        self.mydevice.command_inout("StopMove")
         return
 
     def AbortOne(self, axis):
         print "AbortOne"
-        mydevice.command_inout("StopMove")
+        self.mydevice.command_inout("StopMove")
         return
     
     
