@@ -27,9 +27,8 @@ class FourChannel(MotorController):
         print "AddDevice"
         self.extra_attributes[axis] = {}
         self.extra_attributes[axis][TANGO_DEV] = None
-        seproxy.lf.velocity[axis] = 0.0
         self.restarted[axis] = [0, 0]
-        self.delay_timer[axis] = None .lf.velocity[axis] = 0.0
+        self.delay_timer[axis] = None
         self.restarted[axis] = [0, 0]
         self.delay_timer[axis] = None         
         
