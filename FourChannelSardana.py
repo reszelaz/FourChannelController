@@ -35,7 +35,7 @@ class FourChannel(MotorController):
         
     def StateOne(self, axis):
         print "StateOne"
-        return (dev.state, dev.status)
+        return (self.mydevice.state(), self.mydevice.status())
 
     def ReadOne(self,axis):
         print "ReadOne"
