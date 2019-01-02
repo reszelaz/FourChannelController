@@ -9,15 +9,13 @@ from threading import Timer
 
 TANGO_DEV = 'device/motor/omega'
 
+
 class FourChannel(MotorController):
 
-    ctrl_extra_attributes = {TANGO_DEV: {'Type': 'PyTango.DevString','Description': 'Tango Device Server name.','R/W Type': 'PyTango.READ_WRITE'}}
-    mydevice = tango.DeviceProxy(TANGO_DEV) 
-
-    
     def __init__(self, inst, props):
         print "__init__"
         MotorController.__init__(self, inst, props)
+        self.mydevice = tango.DeviceProxy(TANGO_DEV)
         self.extra_attributes = {}
         self.proxy = {}
         self.velocity = {12}
@@ -25,7 +23,6 @@ class FourChannel(MotorController):
         self.delay_timer = {}
         mydevice.command_inout("Init")
 
-        
     def AddDevice(self, axis):
         print "AddDevice"
         self.extra_attributes[axis] = {}
